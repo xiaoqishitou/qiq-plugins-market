@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>qiq 插件市场</title>
+<meta name="description" content="qiq 机器人框架的插件仓库：挑插件、看依赖、复制市场地址给桌面端一键安装。">
+<link rel="icon" href="assets/favicon.ico">
+<link rel="stylesheet" href="assets/styles.css">
+<script>
+  // 主题在首屏渲染前定下来，避免亮暗闪一下
+  try {
+    var saved = localStorage.getItem('qiq-market-theme');
+    var theme = saved || (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+    document.documentElement.dataset.theme = theme;
+  } catch (e) { /* 无痕模式等场景下用默认深色 */ }
+</script>
+</head>
+<body>
+
+<!-- ═══════════ 顶栏 ═══════════ -->
+<header class="topbar">
+  <div class="topbar__inner">
+    <a class="brand" href="./" style="text-decoration:none;color:inherit">
+      <span class="brand__mark"><img src="assets/qiq.png" alt="qiq" width="38" height="38"></span>
+      <span class="brand__text">
+        <span class="brand__title">qiq 插件市场</span>
+        <span class="brand__sub">registry for qiq bot</span>
+      </span>
+    </a>
+
+    <label class="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+           stroke-linecap="round" aria-hidden="true">
+        <circle cx="11" cy="11" r="7"></circle>
+        <path d="M20 20l-3.5-3.5"></path>
+      </svg>
+      <input id="search" type="search" placeholder="搜索插件名、作者、标签、描述..." autocomplete="off">
+    </label>
+
+    <button class="btn btn--icon" id="theme-toggle" title="切换深浅主题" aria-label="切换深浅主题">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+           stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="4.5"></circle>
+        <path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M6.5 17.5L5 19"></path>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ═══════════ 页头 ═══════════ -->
+  <section class="hero">
+    <div class="hero__eyebrow">plugin registry</div>
+    <h1>给 qiq 装插件的地方</h1>
+    <p>这里的所有插件都是引用 <strong>Qiq.Plugin.Sdk</strong> 的 .NET 类库，装上即可运行。
+       把下面的「市场地址」填进 qiq 桌面端的插件市场，就能直接浏览和安装。</p>
+
+    <div class="market-addr">
+      <span class="market-addr__label">市场地址</span>
+      <code id="market-url">加载中...</code>
+      <span class="market-addr__spacer"></span>
+      <button class="btn btn--primary btn--sm" id="copy-market">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <rect x="9" y="9" width="11" height="11" rx="2"></rect>
+          <path d="M5 15V5a2 2 0 0 1 2-2h8"></path>
+        </svg>
+        复制地址
+      </button>
+      <a class="btn btn--ghost btn--sm" id="open-json" href="market.json" target="_blank" rel="noopener">
+        查看清单
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══════════ 统计 ═══════════ -->
+  <section class="stats" id="stats" hidden>
+    <div class="stat"><div class="stat__value" id="stat-total">-</div><div class="stat__label">插件总数</div></div>
+    <div class="stat"><div class="stat__value" id="stat-installable">-</div><div class="stat__label">可直接安装</div></div>
+    <div class="stat"><div class="stat__value" id="stat-tags">-</div><div class="stat__label">标签</div></div>
+    <div class="stat"><div class="stat__value" id="stat-updated">-</div><div class="stat__label">清单更新</div></div>
+  </section>
+
+  <!-- ═══════════ 筛选 ═══════════ -->
+  <section class="filters" id="filters" hidden>
+    <span class="filters__label">标签</span>
+    <div class="chips" id="tag-chips"></div>
+    <select class="select" id="sort" aria-label="排序方式">
+      <option value="name">按名称</option>
+      <option value="published">按更新时间</option>
+      <option value="size">按体积</option>
+    </select>
+  </section>
+
+  <!-- ═══════════ 插件列表 ═══════════ -->
+  <section class="grid" id="grid" aria-live="polite"></section>
+
+  <!-- ═══════════ 页脚 ═══════════ -->
+  <footer class="footer">
+    <strong style="color:var(--text)">怎么让 qiq 用上这个市场</strong>
+    <ol>
+      <li>在本目录执行 <code>node tools/serve.mjs</code> 起一个本地静态服务</li>
+      <li>打开 qiq 桌面端「插件 -&gt; 市场」，把上面的市场地址粘进去并保存</li>
+      <li>刷新列表，选中插件点「安装」，框架会下载校验并热加载</li>
+    </ol>
+    <p style="margin-top:14px">上架自己的插件：<code>node tools/publish-plugin.mjs 你的插件.dll --name "名称" --version 1.0.0</code></p>
+  </footer>
+</main>
+
+<!-- ═══════════ 详情抽屉 ═══════════ -->
+<div class="drawer-backdrop" id="backdrop"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title" hidden>
+  <div class="drawer__head">
+    <span class="card__icon" id="drawer-icon">?</span>
+    <div style="flex:1;min-width:0">
+      <div class="card__name" id="drawer-title">-</div>
+      <div class="card__meta" id="drawer-sub">-</div>
+    </div>
+    <button class="btn btn--icon drawer__close" id="drawer-close" aria-label="关闭">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+           stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <path d="M6 6l12 12M18 6L6 18"></path>
+      </svg>
+    </button>
+  </div>
+  <div class="drawer__body" id="drawer-body"></div>
+</aside>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script type="module" src="assets/app.js"></script>
+</body>
+</html>

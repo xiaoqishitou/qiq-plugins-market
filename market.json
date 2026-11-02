@@ -1,0 +1,58 @@
+{
+  "name": "qiq 插件市场",
+  "version": 1,
+  "plugins": [
+    {
+      "id": "fanqie-novel",
+      "name": "番茄小说",
+      "version": "1.1.3",
+      "author": "七",
+      "description": "番茄小说：关键词搜索 / 详情 / 目录 / 章节正文 / 整本下载（直接发送 txt 文件；填入登录 Cookie 可获取第10章以后锁定章节完整正文，已修正反爬页误当正文的问题）",
+      "homepage": "https://fanqienovel.com/",
+      "tags": [
+        "工具",
+        "小说",
+        "下载",
+        "番茄"
+      ],
+      "requires": [],
+      "url": "https://xiaoqishitou.github.io/qiq-plugins-market/plugins/fanqie-novel-1.1.3.zip",
+      "sha256": "f2a0945846dba8591dfc534d86c95f77e1ad54406e0303048680262619339bb0",
+      "size": 49745,
+      "minAppVersion": "",
+      "category": "工具",
+      "license": "MIT",
+      "installable": true,
+      "publishedAt": "2026-10-03T08:14:52.000Z",
+      "entry": "FanqieNovel.dll"
+    },
+    {
+      "id": "ai-agent",
+      "name": "AI 助手",
+      "version": "1.1.0",
+      "author": "七",
+      "description": "Codex 级 QQ Agent：接入任意 OpenAI 兼容大模型，群内免@对话、识别图片、语音合成、AI 生图、联网搜索、可调用全部 QQ 接口；支持预设人设、主人权限与超长回复分段。",
+      "homepage": "",
+      "tags": [
+        "AI",
+        "大模型",
+        "Agent",
+        "对话",
+        "工具",
+        "视觉",
+        "语音"
+      ],
+      "requires": [],
+      "url": "https://xiaoqishitou.github.io/qiq-plugins-market/plugins/ai-agent-1.1.0.zip",
+      "sha256": "de008ed5ba57d4bcb3c7a7c871a215e638d9adf2db0712741a390d4cbea3acca",
+      "size": 67458,
+      "minAppVersion": "",
+      "category": "AI",
+      "license": "MIT",
+      "installable": true,
+      "publishedAt": "2026-10-06T09:56:37.000Z",
+      "entry": "AiAgentPlugin.dll"
+    }
+  ],
+  "updatedAt": "2026-10-06T09:56:37.000Z"
+}
