@@ -32,9 +32,9 @@
     {
       "id": "deepseek",
       "name": "DeepSeek 对话",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": "七",
-      "description": "接入 DeepSeek，给 QQ 装一个有人格、有记忆、会接话的外脑：@ 或叫名字才回，群里有旁听上下文，支持 deepseek-chat / deepseek-reasoner。灵感来自 Aurabot。",
+      "description": "接入 DeepSeek，给 QQ 装一个有人格、有记忆、会接话的外脑：@ 或叫名字才回，群里有旁听上下文，支持 deepseek-chat / deepseek-reasoner。v1.0.1 起回复改为 @ 对方，不再出现 [不支持:reply] 前缀。",
       "homepage": "https://github.com/yupotian/dsh-aurabot-qq-fork",
       "tags": [
         "AI",
@@ -43,15 +43,15 @@
         "大模型"
       ],
       "requires": [],
-      "url": "https://xiaoqishitou.github.io/qiq-plugins-market/plugins/deepseek-1.0.0.zip",
-      "sha256": "be0f89d6670e0217121d495f71d2e82c9961fe40a6ae058950a865418fc64dfb",
-      "size": 58388,
+      "url": "https://xiaoqishitou.github.io/qiq-plugins-market/plugins/deepseek-1.0.1.zip",
+      "sha256": "942add7ae0cb60e0d9a5398170b1203e8098b59b2a90900f72ea2654426c7e4d",
+      "size": 58436,
       "minAppVersion": "",
       "category": "AI",
       "license": "MIT",
       "installable": true,
-      "publishedAt": "2026-11-04T03:01:39.716Z",
-      "entry": "DeepSeekPlugin.dll"
+      "publishedAt": "2026-11-04T03:34:59.314Z",
+      "entry": ""
     },
     {
       "id": "fanqie-novel",
@@ -78,5 +78,5 @@
       "entry": "FanqieNovel.dll"
     }
   ],
-  "updatedAt": "2026-11-04T03:02:09Z"
+  "updatedAt": "2026-11-04T03:35:29Z"
 }
