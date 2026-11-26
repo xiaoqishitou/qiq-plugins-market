@@ -80,9 +80,9 @@
     {
       "id": "pi-agent",
       "name": "Pi 智能助手",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": "qiq",
-      "description": "把 QQ 群/私聊接入 Pi coding agent：@ 或前缀触发、每个群/私聊独立会话、支持图片、/new /status /abort /model 指令、超时自动中断。",
+      "description": "把 QQ 群/私聊接入 Pi coding agent：@ 或前缀触发、每个群/私聊独立会话、支持图片、/new /status /abort /model 指令、超时自动中断。v1.0.1 起 PiCliPath 自动纠正（少反斜杠 / 正反斜杠混用 / 只填安装目录都能启动），启动失败 10 秒退避不再刷屏，找不到 Node 会明确报错。",
       "homepage": "https://github.com/earendil-works/pi",
       "tags": [
         "AI",
@@ -90,16 +90,16 @@
         "对话"
       ],
       "requires": [],
-      "url": "https://xiaoqishitou.github.io/qiq-plugins-market/plugins/pi-agent-1.0.0.zip",
-      "sha256": "1058554149d2671fa3e348bf0844a5b9f61b67cf41766b7ed4304e1a952c8ba3",
-      "size": 48664,
+      "url": "https://xiaoqishitou.github.io/qiq-plugins-market/plugins/pi-agent-1.0.1.zip",
+      "sha256": "6e95048225c6101d15c0962a57b76108d28346eb5e68504665092816c4c1a5ad",
+      "size": 55084,
       "minAppVersion": "0.2.13",
       "category": "AI",
       "license": "MIT",
       "installable": true,
-      "publishedAt": "2026-11-26T02:02:16.224Z",
+      "publishedAt": "2026-11-26T02:32:31.974Z",
       "entry": "QiqPiPlugin.dll"
     }
   ],
-  "updatedAt": "2026-11-26T02:03:07Z"
+  "updatedAt": "2026-11-26T02:33:24Z"
 }
