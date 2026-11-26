@@ -76,7 +76,30 @@
       "installable": true,
       "publishedAt": "2026-10-03T08:14:52.000Z",
       "entry": "FanqieNovel.dll"
+    },
+    {
+      "id": "pi-agent",
+      "name": "Pi 智能助手",
+      "version": "1.0.0",
+      "author": "qiq",
+      "description": "把 QQ 群/私聊接入 Pi coding agent：@ 或前缀触发、每个群/私聊独立会话、支持图片、/new /status /abort /model 指令、超时自动中断。",
+      "homepage": "https://github.com/earendil-works/pi",
+      "tags": [
+        "AI",
+        "Agent",
+        "对话"
+      ],
+      "requires": [],
+      "url": "https://xiaoqishitou.github.io/qiq-plugins-market/plugins/pi-agent-1.0.0.zip",
+      "sha256": "1058554149d2671fa3e348bf0844a5b9f61b67cf41766b7ed4304e1a952c8ba3",
+      "size": 48664,
+      "minAppVersion": "0.2.13",
+      "category": "AI",
+      "license": "MIT",
+      "installable": true,
+      "publishedAt": "2026-11-26T02:02:16.224Z",
+      "entry": "QiqPiPlugin.dll"
     }
   ],
-  "updatedAt": "2026-11-04T03:35:29Z"
+  "updatedAt": "2026-11-26T02:03:07Z"
 }
